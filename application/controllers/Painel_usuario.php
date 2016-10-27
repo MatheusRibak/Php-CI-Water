@@ -28,15 +28,15 @@ class Painel_usuario extends CI_Controller {
     $config['map_type'] = 'SATELLITE';
     $this->googlemaps->initialize($config);
 
-    $dadosLocais = $this->Local_model->getLocais();
+    $dadosLocais = $this->Nascente_model->getLocais();
 
     foreach ($dadosLocais as $row) {
       $marker = array();
       $marker['position'] = $row->latitude . ',' . $row->longitude;
-      $marker['title'] = $row->nome_local;
+      $marker['title'] = $row->nome_nascente;
       $dadosUsuario = $this->Usuario_model->getUsuario()->row();
-      $marker['infowindow_content'] =  	'<h2>'. $row->nome_local . '</h2>' . 'Descrição: '
-       . $row->descricao_local . '</br>' . 'Latitude: ' . $row->latitude
+      $marker['infowindow_content'] =  	'<h2>'. $row->nome_nascente . '</h2>' . 'Descrição: '
+       . $row->descricao_nascente . '</br>' . 'Latitude: ' . $row->latitude
        . '</br>' . 'Longitude: ' . $row->longitude
        . '</br>' . 'Usuário que Cadastrou: ' . $dadosUsuario->nome;
       $this->googlemaps->add_marker($marker);
@@ -44,7 +44,7 @@ class Painel_usuario extends CI_Controller {
     }
       $data['map'] = $this->googlemaps->create_map();
 
-    $this->load->view('view_file', $data);
+    $this->load->view('usuario/painel_usuario', $data);
   }
 
 

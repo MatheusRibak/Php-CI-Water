@@ -22,8 +22,12 @@ class Usuario extends CI_Controller {
     $this->load->view('home');
   }
 
+  public function carregaCadastrarUsuario(){
+    $this->load->view('cadastrar_usuario');
+  }
+
   public function realizarLogin(){
-    //pega os dados vindos da view de login
+    //pega os dados vindos do login
     $usuario_email = $this->input->post('email');
     $usuario_senha = $this->input->post('senha');
     //fazendo a validação do formulario de login
@@ -34,7 +38,7 @@ class Usuario extends CI_Controller {
       $this->index();
       return;
     }
-    //seleciona os dados na tabela de voluntario
+    //seleciona os dados na tabela do usuario
     $this->db->select("*")
     ->from("usuario")
     ->where("email", $usuario_email)

@@ -1,14 +1,13 @@
 <?php
 
-class Local_model extends CI_Model {
+class Nascente_model extends CI_Model {
 
-	public $nome_local;
-	public $descricao_local;
-  public $criador_local;
+	public $nome_nascente;
+	public $descricao_nascente;
+  public $criador_nascente;
   public $longitude;
   public $latitude;
-  public $data_local;
-	public $id_usuario;
+
 
 	function __construct() {
 		parent::__construct();
