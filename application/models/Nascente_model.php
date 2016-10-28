@@ -1,9 +1,8 @@
 <?php
 
 class Nascente_model extends CI_Model {
-
-	public $nome_nascente;
-	public $descricao_nascente;
+    public $nome_nascente;
+    public $descricao_nascente;
   public $criador_nascente;
   public $longitude;
   public $latitude;

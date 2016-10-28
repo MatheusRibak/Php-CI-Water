@@ -330,6 +330,7 @@ class CI_Loader {
 					continue;
 				}
 
+
 				require_once($mod_path.'models/'.$path.$model.'.php');
 				if ( ! class_exists($model, FALSE))
 				{
@@ -338,7 +339,6 @@ class CI_Loader {
 
 				break;
 			}
-
 			if ( ! class_exists($model, FALSE))
 			{
 				throw new RuntimeException('Unable to locate the model you have specified: '.$model);
