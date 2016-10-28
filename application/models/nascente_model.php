@@ -9,17 +9,18 @@ class Nascente_model extends CI_Model {
   public $latitude;
 
 
+
 	function __construct() {
 		parent::__construct();
 	}
 
   function salvar(){
-    return $this->db->insert('local', $this);
+    return $this->db->insert('cidade_nascente', $this);
   }
 
 	function getLocais(){
 		$this->db->select('*')
-		->from('local');
+		->from('cidade_nascente');
 	 	return $this->db->get()->result();
 	}
 

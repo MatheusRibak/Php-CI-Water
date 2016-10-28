@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 27-Out-2016 às 03:34
+-- Generation Time: 28-Out-2016 às 21:03
 -- Versão do servidor: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `local`
+-- Estrutura da tabela `cidade_nascente`
 --
 
-CREATE TABLE `local` (
+CREATE TABLE `cidade_nascente` (
   `cd_local` int(11) NOT NULL,
   `nome_nascente` varchar(120) DEFAULT NULL,
   `descricao_nascente` varchar(120) DEFAULT NULL,
@@ -36,16 +36,20 @@ CREATE TABLE `local` (
   `data_local` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Extraindo dados da tabela `local`
+-- Estrutura da tabela `endereco`
 --
 
-INSERT INTO `local` (`cd_local`, `nome_nascente`, `descricao_nascente`, `criador_nascente`, `latitude`, `longitude`, `data_local`) VALUES
-(4, 'teste', 'teste descrição', '', 37.429, -122.1419, '0000-00-00'),
-(40, 'gambiarra', '', '', 37.329, -122.1419, '0000-00-00'),
-(41, 'fafa', 'Teste eu sou brrrrrrr', '1', 37.329, -122.1419, NULL),
-(42, 'fafa', 'Teste eu sou brrrrrrr', '1', 37.329, -122.1419, NULL),
-(43, 'Auxiliar Administrativo', 'tes', '1', 35.329, -121.1419, NULL);
+CREATE TABLE `endereco` (
+  `id_endereco` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `rua` varchar(120) DEFAULT NULL,
+  `numero` varchar(120) DEFAULT NULL,
+  `cidade` varchar(120) DEFAULT NULL,
+  `estado` varchar(120) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -57,26 +61,27 @@ CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
   `nome` varchar(150) DEFAULT NULL,
   `email` varchar(150) DEFAULT NULL,
-  `senha` varchar(150) DEFAULT NULL
+  `senha` varchar(150) DEFAULT NULL,
+  `telefone` varchar(120) NOT NULL,
+  `cpf` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `usuario`
---
-
-INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`) VALUES
-(1, 'Matheus', 'matheusribak@hotmail.com', 'e4da3b7fbbce2345d7772b0674a318d5'),
-(2, 'teste', NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `local`
+-- Indexes for table `cidade_nascente`
 --
-ALTER TABLE `local`
+ALTER TABLE `cidade_nascente`
   ADD PRIMARY KEY (`cd_local`);
+
+--
+-- Indexes for table `endereco`
+--
+ALTER TABLE `endereco`
+  ADD PRIMARY KEY (`id_endereco`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indexes for table `usuario`
@@ -89,15 +94,30 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT for table `local`
+-- AUTO_INCREMENT for table `cidade_nascente`
 --
-ALTER TABLE `local`
-  MODIFY `cd_local` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+ALTER TABLE `cidade_nascente`
+  MODIFY `cd_local` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+--
+-- AUTO_INCREMENT for table `endereco`
+--
+ALTER TABLE `endereco`
+  MODIFY `id_endereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `endereco`
+--
+ALTER TABLE `endereco`
+  ADD CONSTRAINT `endereco_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

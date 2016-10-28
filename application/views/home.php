@@ -60,6 +60,21 @@
       </div>
     </nav>
 
+<div class="col-sm-12">
+  <br>
+  <?php echo validation_errors(); ?>
+            <?php if ($this->input->get('aviso') == 1) { ?>
+              <div class="alert alert-danger alert-dismissible fade in col-sm-6 col-sm-offset-3" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <strong>Erro !</strong> Erro ao logar, email ou senha invalidos!!!
+                                </div>
+              <?php } ?>
+
+</div>
+
+
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">

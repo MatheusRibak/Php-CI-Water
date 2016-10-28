@@ -1,19 +1,19 @@
 <?php
 
-class Usuario_model extends CI_Model {
+class Endereco_model extends CI_Model {
 
-	public $nome;
-  public $email;
-  public $senha;
-	public $cpf;
-	public $telefone; 
+	public $rua;
+  public $estado;
+  public $cidade;
+  public $id_usuario;
+  public $numero;
 
 	function __construct() {
 		parent::__construct();
 	}
 
-  function salvar(){
-    return $this->db->insert('cidade_nascente', $this);
+  function cadastrarEndereco($data){
+     $this->db->insert('endereco', $data);
   }
 
 	function salvarUsuario(){

@@ -12,26 +12,11 @@
 
     <title>Jumbotron Template for Bootstrap</title>
 
-
-    <!-- Bootstrap core CSS -->
     <link href="<?=base_url('assets/css/bootstrap.css')?>" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="<?=base_url('assets/css/jumbotron.css')?>" rel="stylesheet">
     <link href="<?=base_url('assets/css/fundo_cinza.css')?>" rel="stylesheet">
+	<script src="<?=base_url('assets/js/jquery.mask.min.js')?>" type="text/javascript"></script>
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
@@ -67,29 +52,112 @@
   			<div>
   				<div class="col-sm-8 col-sm-offset-2">
   					<h2>Cadastro de Novo Usuário</h2>
-
+            <?php echo validation_errors(); ?>
+            					<?php if ($this->input->get('aviso') == 1) { ?>
+            						<div class="alert alert-success">
+            							Cadastrado realizado com sucesso!
+            						</div>
+            						<?php } ?>
+            						<?php if ($this->input->get('aviso') == 2) { ?>
+            							<div class="alert alert-danger">
+            								E-mail já cadastrado! Tente inserir outro e-mail, ou se lembrar se já não se cadastrou no sistema!
+            							</div>
+            							<?php } ?>
 
   							<div class="tab-content">
   								<div id="ong" class="tab-pane fade in active">
   								</br>
-  								<form action="http://[::1]/SistemaDeVoluntariado/index.php/entidade/loginEntidade" method="post">
+  								<form action="<?=site_url('Usuario/cadastrarUsuario')?>" method="post">
+                    <div class="form-group">
+  										<label for="e">Nome Completo: *</label>
+  										<input type="text"
+  										id="senha" name="nome"
+  										value="" class="form-control" required  />
+  									</div>
 
   									<div class="form-group">
-  										<label for="emailEntidade">E-mail:</label>
+  										<label for="">E-mail: *</label>
   										<input type="email"
-  										name="entidade_email" id="emailEntidade"
+  										name="email" id=""
   										value="" class="form-control" required  />
   									</div>
 
   									<div class="form-group">
-  										<label for="senhaEntidade">Senha:</label>
+  										<label for="e">Senha: *</label>
   										<input type="password"
-  										id="senhaEntidade" name="entidade_senha"
+  										id="senha" name="senha"
   										value="" class="form-control" required  />
   									</div>
+                    <div class="form-group">
+  										<label for="e">Telefone: *</label>
+  										<input type="text"
+  										id="senha" name="telefone"
+  										value="" class="form-control" required  />
+  									</div>
+                    <div class="form-group">
+                      <label for="e">CPF: *</label>
+                      <input type="text"
+                      id="senha" name="cpf"
+                      value="" class="form-control" required  />
+                    </div>
+                    <div class="form-group">
+                      <label for="e">Rua: *</label>
+                      <input type="text"
+                      id="senha" name="rua"
+                      value="" class="form-control" required  />
+                    </div>
+                    <div class="form-group">
+                      <label for="e">Nº: *</label>
+                      <input type="text"
+                      id="senha" name="numero"
+                      value="" class="form-control" required  />
+                    </div>
+                    <div class="form-group">
+                        <label for="e">Estado: *</label>
+                      <select name="estado" lang="pt" class="form-control" name = "estado">
+                                           <option value="AC">Acre</option>
+                                           <option value="AL">Alagoas</option>
+                                           <option value="AM">Amazonas</option>
+                                           <option value="AP">Amapá</option>
+                                           <option value="BA">Bahia</option>
+                                           <option value="CE">Ceará</option>
+                                           <option value="DF">Distrito Federal</option>
+                                           <option value="ES">Espírito Santo</option>
+                                           <option value="GO">Goiás</option>
+                                           <option value="MA">Maranhão</option>
+                                           <option value="MT">Mato Grosso</option>
+                                           <option value="MS">Mato Grosso do Sul</option>
+                                           <option value="MG">Minas Gerais</option>
+                                           <option value="PA">Pará</option>
+                                           <option value="PB">Paraíba</option>
+                                           <option value="PR">Paraná</option>
+                                           <option value="PE">Pernambuco</option>
+                                           <option value="PI">Piauí</option>
+                                           <option value="RJ">Rio de Janeiro</option>
+                                           <option value="RN">Rio Grande do Norte</option>
+                                           <option value="RO">Rondônia</option>
+                                           <option value="RS">Rio Grande do Sul</option>
+                                           <option value="RR">Roraima</option>
+                                           <option value="SC">Santa Catarina</option>
+                                           <option value="SE">Sergipe</option>
+                                           <option value="SP">São Paulo</option>
+                                           <option value="TO">Tocantins</option>
+                                       </select>
+                    </div>
+                    <div class="form-group ">
+                      <label for="e">Cidade: *</label>
+                      <input type="text"
+                      id="senha" name="cidade"
+                      value="" class="form-control" required  />
+                    </div>
+
+
+
+
+
 
   									<button type="submit" class="btn btn-primary">
-  										Realizar Login ONG <span class="glyphicon glyphicon-ok"></span>
+  										Realizar Cadastro <span class="glyphicon glyphicon-ok"></span>
   									</button>
   									<br>
   									<br>
@@ -106,14 +174,10 @@
 
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="<?=base_url('assets/js/bootstrap.js')?>"></script>
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
