@@ -1,15 +1,5 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: 28-Out-2016 às 21:03
--- Versão do servidor: 10.1.16-MariaDB
--- PHP Version: 5.6.24
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,7 +15,7 @@ SET time_zone = "+00:00";
 --
 -- Estrutura da tabela `cidade_nascente`
 --
-
+drop table IF EXISTS `cidade_nascente`;
 CREATE TABLE `cidade_nascente` (
   `cd_local` int(11) NOT NULL,
   `nome_nascente` varchar(120) DEFAULT NULL,
@@ -41,7 +31,7 @@ CREATE TABLE `cidade_nascente` (
 --
 -- Estrutura da tabela `endereco`
 --
-
+drop table IF EXISTS `endereco`;
 CREATE TABLE `endereco` (
   `id_endereco` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
@@ -56,7 +46,7 @@ CREATE TABLE `endereco` (
 --
 -- Estrutura da tabela `usuario`
 --
-
+drop TABLE if EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
   `nome` varchar(150) DEFAULT NULL,
