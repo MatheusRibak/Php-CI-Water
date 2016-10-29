@@ -68,28 +68,36 @@
     <div class="row">
         <div class="col-md-4">
             <h2>Nascentes cadastradas</h2>
-            <p>Permite aos usuários cadastrar e atualizar informações sobre novas nascentes e visualizar um mapa com localização GPS das nascentes no sistema. Com função de busca por cidades. Utilizando a API do Google Maps.</p>
-            <img class="img-responsive" src="<?= base_url('assets/imgs/maps.jpg') ?>" alt="Mapa do google maps com exemplo"/>
+            <p>Permite aos usuários cadastrar e atualizar informações sobre novas nascentes e visualizar um mapa com
+                localização GPS das nascentes no sistema. Com função de busca por cidades. Utilizando a API do Google
+                Maps.</p>
+            <img class="img-responsive" src="<?= base_url('assets/imgs/maps.jpg') ?>"
+                 alt="Mapa do google maps com exemplo"/>
         </div>
         <div class="col-md-4">
             <h2>Rios, córregos e nascentes</h2>
-            <p>Importante para controle e mapeamento do fluxo de água de pequenos e grandes rios, fiscalização ambiental, cadastro de nascentes atualizadas e informativo à interessados sobre as nascentes de determinada região.</p>
-            <img class="img-responsive" src="<?= base_url('assets/imgs/rios.png') ?>" alt="Mapa do google maps com exemplo"/>
+            <p>Importante para controle e mapeamento do fluxo de água de pequenos e grandes rios, fiscalização
+                ambiental, cadastro de nascentes atualizadas e informativo à interessados sobre as nascentes de
+                determinada região.</p>
+            <img class="img-responsive" src="<?= base_url('assets/imgs/rios.png') ?>"
+                 alt="Mapa do google maps com exemplo"/>
         </div>
         <div class="col-md-4">
             <h2>Preservação</h2>
-            <p>Hoje a legislação brasileira possui diversas leis sobre questões ambientais e florestais referentes às proximidades de córregos, rios e também nascentes, por falta de fiscalização essas leis não são respeitadas, causando que essas nascentes, córregos e até mesmo rios venham a secar, prejudicando todo seu eco-sistema ao redor, com o sistema de controle de nascentes podemos ajudar a identificar as nascentes e manter um constante e atualizado cadastro sobre as situações dos ao redores das mesmas.</p>
-            <img class="img-responsive" src="<?= base_url('assets/imgs/APP.jpg') ?>" alt="Mapa do google maps com exemplo"/>
+            <p>Hoje a legislação brasileira possui diversas leis sobre questões ambientais e florestais referentes às
+                proximidades de córregos, rios e também nascentes, por falta de fiscalização essas leis não são
+                respeitadas, causando que essas nascentes, córregos e até mesmo rios venham a secar, prejudicando todo
+                seu eco-sistema ao redor, com o sistema de controle de nascentes podemos ajudar a identificar as
+                nascentes e manter um constante e atualizado cadastro sobre as situações dos ao redores das mesmas.</p>
+            <img class="img-responsive" src="<?= base_url('assets/imgs/APP.jpg') ?>"
+                 alt="Mapa do google maps com exemplo"/>
 
         </div>
     </div>
-
     <hr>
-
     <footer>
     </footer>
 </div> <!-- /container -->
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="<?= base_url('assets/js/bootstrap.js') ?>"></script>
