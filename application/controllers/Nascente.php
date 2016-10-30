@@ -43,4 +43,11 @@ class Nascente extends CI_Controller
             redirect('Nascente/carregaCadastrarNascente/?aviso=1');
         }
     }
+
+    function listarNascentes(){
+        $this->load->view('template/header');
+        $this->load->view('template/menu');
+        $this->load->view('nascente/listagem');
+        $this->load->view('template/footer');
+    }
 }
