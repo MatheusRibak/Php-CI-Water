@@ -1,3 +1,5 @@
+<input type="date" name="name" value="">
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
