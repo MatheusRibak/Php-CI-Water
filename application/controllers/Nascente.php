@@ -10,8 +10,10 @@ class Nascente extends MY_ControllerLogado
 
   function carregaCadastrarNascente()
   {
+    $data = array('pos' => 1);
+
     $this->load->view('template/header');
-    $this->load->view('template/menu');
+    $this->load->view('template/menu', $data);
     $this->load->view('usuario/cadastrar_nascente');
     $this->load->view('template/footer');
   }
@@ -60,9 +62,9 @@ class Nascente extends MY_ControllerLogado
     $data = array(
       "minhasNascentes" => $this->Nascente_model->listarNascentes()
     );
-
+    $dataMenu = array('pos' => 2);
     $this->load->view('template/header');
-    $this->load->view('template/menu');
+    $this->load->view('template/menu', $dataMenu);
     $this->load->view('nascente/listagem', $data);
     $this->load->view('template/footer');
   }

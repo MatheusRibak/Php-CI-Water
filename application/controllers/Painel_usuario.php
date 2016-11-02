@@ -38,8 +38,10 @@ class Painel_usuario extends MY_ControllerLogado
         $overlay['positionNE'] = '37.459, -122.2244';
         $this->googlemaps->add_ground_overlay($overlay);
 
+
+        $dataMenu = array('pos' => 0);
         $this->load->view('template/header');
-        $this->load->view('template/menu');
+        $this->load->view('template/menu', $dataMenu);
         $this->load->view('usuario/painel_usuario', $data);
         $this->load->view('template/footer');
     }
