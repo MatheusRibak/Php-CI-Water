@@ -7,6 +7,11 @@
                 Você cadastrou a Nascente Com sucesso!!!
             </div>
         <?php } ?>
+        <?php if ($this->input->get('aviso') == 2) { ?>
+            <div class="alert alert-danger">
+                Uma Nascente com esses dados já está cadastrada em nosso site!!!
+            </div>
+        <?php } ?>
     </div>
     <div class="col-lg-12">
         <div class="panel panel-default">

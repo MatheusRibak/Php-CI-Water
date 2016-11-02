@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Painel_usuario extends CI_Controller
+class Painel_usuario extends MY_ControllerLogado
 {
     public function index()
     {
@@ -26,9 +26,18 @@ class Painel_usuario extends CI_Controller
                 . $row->descricao_nascente . '</br>' . 'Latitude: ' . $row->latitude
                 . '</br>' . 'Longitude: ' . $row->longitude
                 . '</br>' . 'Usuário que Cadastrou: ' . $dadosUsuario->nome;
+
             $this->googlemaps->add_marker($marker);
+
         }
         $data['map'] = $this->googlemaps->create_map();
+        $overlay = array();
+        $overlay['image'] = 'http://publicador.tvcultura.com.br/upload/tvcultura/programas/programa-imagem-som.jpg';
+
+        $overlay['positionSW'] = '37.459, -122.1319';
+        $overlay['positionNE'] = '37.459, -122.2244';
+        $this->googlemaps->add_ground_overlay($overlay);
+
         $this->load->view('template/header');
         $this->load->view('template/menu');
         $this->load->view('usuario/painel_usuario', $data);

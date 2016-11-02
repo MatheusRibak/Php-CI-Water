@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Nascente extends CI_Controller
+class Nascente extends MY_ControllerLogado
 {
   public function index()
   {
@@ -19,7 +19,18 @@ class Nascente extends CI_Controller
   function cadastrarNascente()
   {
     $dados = array();
-    //pegando os dados dos inputs
+
+    //verifica se uma nascente já está cadastrada no site
+    $this->db->select('*');
+    $this->db->where('longitude', $this->input->post('longitude'));
+    $this->db->where('latitude', $this->input->post('latitude'));
+    $retorno = $this->db->get('cidade_nascente')->num_rows();
+    //se já estiver vai ser dado um aviso ao usuario
+    if ($retorno > 0) {
+        redirect('Nascente/carregaCadastrarNascente/?aviso=2');
+    } else {
+      //se não tiver o cadastro da nascente vai ser feito
+      //pegando os dados dos inputs
     $this->Nascente_model->nome_nascente = $this->input->post('nome');
     $this->Nascente_model->descricao_nascente = $this->input->post('descricao');
     $this->Nascente_model->criador_nascente = $this->session->userdata('id_usuario');
@@ -43,6 +54,7 @@ class Nascente extends CI_Controller
       redirect('Nascente/carregaCadastrarNascente/?aviso=1');
     }
   }
+}
 
   function listarNascentes(){
     $data = array(

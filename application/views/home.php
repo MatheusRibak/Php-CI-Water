@@ -1,5 +1,3 @@
-<input type="date" name="name" value="">
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -52,6 +50,17 @@
                 <span aria-hidden="true">×</span>
             </button>
             <strong>Erro !</strong> Erro ao logar, email ou senha inválidos!!!
+        </div>
+    </div>
+<?php } ?>
+<?php if ($this->input->get('aviso') == 2) { ?>
+    <div class="col-sm-12">
+        <br>
+        <div class="alert alert-danger alert-dismissible fade in col-sm-6 col-sm-offset-3" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <strong>Erro !</strong> Você não está logado, logo não tem acesso a está URL!!!
         </div>
     </div>
 <?php } ?>
