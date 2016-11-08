@@ -31,18 +31,56 @@ class Painel_usuario extends MY_ControllerLogado
 
         }
         $data['map'] = $this->googlemaps->create_map();
-        $overlay = array();
-        $overlay['image'] = 'http://publicador.tvcultura.com.br/upload/tvcultura/programas/programa-imagem-som.jpg';
-
-        $overlay['positionSW'] = '37.459, -122.1319';
-        $overlay['positionNE'] = '37.459, -122.2244';
-        $this->googlemaps->add_ground_overlay($overlay);
-
 
         $dataMenu = array('pos' => 0);
         $this->load->view('template/header');
         $this->load->view('template/menu', $dataMenu);
         $this->load->view('usuario/painel_usuario', $data);
         $this->load->view('template/footer');
+    }
+
+    function procurarNascestes(){
+      $busca = $this->input->post('input_busca');
+
+
+      $this->db->select('*')
+      ->from('municipiosbrasil')
+      ->where('MUNICIPIO', $busca);
+    $teste =   $this->db->get()->row();
+
+
+echo $teste->MUNICIPIO;
+echo $teste->LATITUDE;
+echo $teste->LONGITUDE;
+
+
+$latitude =  $teste->LATITUDE;
+$longitude =  $teste->LONGITUDE;
+
+    $id_usuario = $this->session->userdata('id_usuario');
+
+    // 'Latitude, Longitude'
+    $this->load->library('googlemaps');
+
+
+      $config['center'] = $latitude . ',' . $longitude;
+      $config['zoom'] = 'auto';
+      $config['map_type'] = 'SATELLITE';
+      $this->googlemaps->initialize($config);
+
+
+
+
+
+    $data['map'] = $this->googlemaps->create_map();
+
+
+    $dataMenu = array('pos' => 0);
+   $this->load->view('template/header');
+  $this->load->view('template/menu', $dataMenu);
+    $this->load->view('usuario/painel_usuario', $data);
+   $this->load->view('template/footer');
+
+
     }
 }
