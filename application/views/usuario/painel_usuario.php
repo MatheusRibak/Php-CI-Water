@@ -3,6 +3,19 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">Mapa de Nascentes</h1>
     <div class="col-sm-12">
+        <?php echo validation_errors(); ?>
+        <?php if ($this->input->get('aviso') == 1) { ?>
+            <div class="alert alert-success">
+                Você cadastrou a Nascente Com sucesso!!!
+            </div>
+        <?php } ?>
+        <?php if ($this->input->get('aviso') == 2) { ?>
+            <div class="alert alert-danger">
+                Uma Nascente com esses dados já está cadastrada em nosso site!!!
+            </div>
+        <?php } ?>
+    </div>
+    <div class="col-sm-12">
       <div class="panel panel-default">
          <div class="panel-heading">
            Procurar Nascente
@@ -20,6 +33,8 @@
                    type="text" class="form-control" name="input_busca"
                    placeholder="Procurar cidade" value=""   />
                  </div>
+
+
 
 
                </div>

@@ -29,7 +29,7 @@ class Nascente extends MY_ControllerLogado
     $retorno = $this->db->get('cidade_nascente')->num_rows();
     //se já estiver vai ser dado um aviso ao usuario
     if ($retorno > 0) {
-        redirect('Nascente/carregaCadastrarNascente/?aviso=2');
+        redirect('Painel_usuario/index/?aviso=2');
     } else {
       //se não tiver o cadastro da nascente vai ser feito
       //pegando os dados dos inputs
@@ -53,7 +53,7 @@ class Nascente extends MY_ControllerLogado
     } else {
       //se estiver certa vai realizar o cadastro da nascente
       $this->Nascente_model->Salvar();
-      redirect('Nascente/carregaCadastrarNascente/?aviso=1');
+      redirect('Painel_usuario/index/?aviso=1');
     }
   }
 }

@@ -10,15 +10,10 @@ class Painel_usuario extends MY_ControllerLogado
 
         // 'Latitude, Longitude'
         $this->load->library('googlemaps');
-
-
-        //Passa aqui as coordenadas que vem da busca de cidades do banco, caso receba um POST.
-        $config['center'] = '-27, -52.6186';
+        $config['center'] = '-26.876944, -52.403889';
         $config['zoom'] = 'auto';
-
-        //Precisa desse tal de cluster como TRUE, agora o center funciona sempre, mesmo que tenha um milhao de markers cadastrados...
-        $config['cluster'] = 'TRUE';
         $config['map_type'] = 'SATELLITE';
+        $config['onclick'] = '$("#txtLatitude").val(event.latLng.lat()); $("#txtLongitude").val(event.latLng.lng());';
 
         $this->googlemaps->initialize($config);
 
@@ -33,9 +28,10 @@ class Painel_usuario extends MY_ControllerLogado
                 . $row->descricao_nascente . '</br>' . 'Latitude: ' . $row->latitude
                 . '</br>' . 'Longitude: ' . $row->longitude
                 . '</br>' . 'Usuário que Cadastrou: ' . $dadosUsuario->nome;
-            $this->googlemaps->add_marker($marker);
-        }
 
+            $this->googlemaps->add_marker($marker);
+
+        }
         $data['map'] = $this->googlemaps->create_map();
 
         $dataMenu = array('pos' => 0);
@@ -45,49 +41,47 @@ class Painel_usuario extends MY_ControllerLogado
         $this->load->view('template/footer');
     }
 
-    function procurarNascestes()
-    {
-        $busca = $this->input->post('input_busca');
+    function procurarNascestes(){
+      $busca = $this->input->post('input_busca');
 
 
-        $this->db->select('*')
-            ->from('municipiosbrasil')
-            ->where('MUNICIPIO', $busca);
-        $teste = $this->db->get()->row();
+      $this->db->select('*')
+      ->from('municipiosbrasil')
+      ->where('MUNICIPIO', $busca);
+    $teste =   $this->db->get()->row();
 
 
-        echo $teste->MUNICIPIO;
-        echo $teste->LATITUDE;
-        echo $teste->LONGITUDE;
+echo $teste->MUNICIPIO;
+echo $teste->LATITUDE;
+echo $teste->LONGITUDE;
 
 
-        $latitude = $teste->LATITUDE;
-        $longitude = $teste->LONGITUDE;
+$latitude =  $teste->LATITUDE;
+$longitude =  $teste->LONGITUDE;
 
-        $id_usuario = $this->session->userdata('id_usuario');
+    $id_usuario = $this->session->userdata('id_usuario');
 
-        // 'Latitude, Longitude'
-        $this->load->library('googlemaps');
-
-
-        //Passa aqui as coordenadas que vem da busca de cidades do banco, caso receba um POST.
-        $config['center'] = '-27, -52.6186';
-        $config['zoom'] = 'auto';
-
-        //Precisa desse tal de cluster como TRUE, agora o center funciona sempre, mesmo que tenha um milhao de markers cadastrados...
-        $config['cluster'] = 'TRUE';
-        $config['map_type'] = 'SATELLITE';
-        $this->googlemaps->initialize($config);
+    // 'Latitude, Longitude'
+    $this->load->library('googlemaps');
 
 
-        $data['map'] = $this->googlemaps->create_map();
+      $config['center'] = $latitude . ',' . $Longitude;
+      $config['zoom'] = 'auto';
+      $config['map_type'] = 'SATELLITE';
+      $this->googlemaps->initialize($config);
 
 
-        $dataMenu = array('pos' => 0);
-        $this->load->view('template/header');
-        $this->load->view('template/menu', $dataMenu);
-        $this->load->view('usuario/painel_usuario', $data);
-        $this->load->view('template/footer');
+
+
+
+    $data['map'] = $this->googlemaps->create_map();
+
+
+    $dataMenu = array('pos' => 0);
+   $this->load->view('template/header');
+  $this->load->view('template/menu', $dataMenu);
+    $this->load->view('usuario/painel_usuario', $data);
+   $this->load->view('template/footer');
 
 
     }
