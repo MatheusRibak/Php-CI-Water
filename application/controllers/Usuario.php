@@ -29,7 +29,7 @@ class Usuario extends CI_Controller
             //se é requirido, tamanho maximo, se deve ser um email valido, entre outros.
             $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
             $this->form_validation->set_rules('nome', 'Nome', 'required|max_length[120]');
-            $this->form_validation->set_rules('telefone', 'Telefone', 'required|max_length[15]');
+            $this->form_validation->set_rules('telefone', 'Telefone', 'required|max_length[150]');
             $this->form_validation->set_rules('email', 'E-mail', 'required|max_length[120]|valid_email');
             $this->form_validation->set_rules('senha', 'Senha', 'required|max_length[120]');
             $this->form_validation->set_rules('cpf', 'CPF', 'required|max_length[120]');

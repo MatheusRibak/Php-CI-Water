@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title>Sistema de Nascentes</title>
 
     <link href="<?= base_url('assets/css/bootstrap.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/jumbotron.css') ?>" rel="stylesheet">
@@ -27,7 +27,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="<?= site_url('Usuario/index') ?>">Sistema de Nascentes</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <form class="navbar-form navbar-right" action="<?= site_url('Usuario/realizarLogin') ?>" method="post">
@@ -37,7 +37,7 @@
                 <div class="form-group">
                     <input type="password" placeholder="Password" class="form-control" name="senha">
                 </div>
-                <button type="submit" class="btn btn-success">Sign in</button>
+                <button type="submit" class="btn btn-success">Entrar</button>
             </form>
         </div><!--/.navbar-collapse -->
     </div>
@@ -90,7 +90,7 @@
                                 <label for="e">Telefone: *</label>
                                 <input type="text"
                                        id="senha" name="telefone"
-                                       value="" class="form-control" required/>
+                                       value="" class="form-control telefone" required/>
                             </div>
                             <div class="form-group">
                                 <label for="e">CPF: *</label>
@@ -163,6 +163,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="<?= base_url('assets/js/bootstrap.js') ?>"></script>
+<script src="<?=base_url('assets/js/jquery.mask.min.js')?>" type="text/javascript"></script>
+<script type="text/javascript">
+  $('.telefone').mask('(00) 00000 - 0000');
+</script>
 
 </body>
 </html>

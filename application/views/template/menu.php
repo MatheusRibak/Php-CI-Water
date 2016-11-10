@@ -11,7 +11,7 @@
                 $ativo[$pos] = 'class="active"';
                 ?>
                 <li <?php echo $ativo[0];?>><a href="<?= site_url('Painel_usuario') ?>">Página inicial</a></li>
-                
+
                 <li <?php echo $ativo[2];?>><a href="<?= site_url('Nascente/listarNascentes') ?>">Listar nascentes</a></li>
             </ul>
 

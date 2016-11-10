@@ -12,7 +12,7 @@
         <div class="col-md-3">
             <div class="input-group">
                 <input class="form-control" id="system-search" name="q"
-                       placeholder="Pesquisar exame" required> <span
+                       placeholder="Pesquisar nascentes" required> <span
                         class="input-group-btn">
           <button type="submit" class="btn btn-default">
             <i class="glyphicon glyphicon-search"></i>

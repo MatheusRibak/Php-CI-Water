@@ -64,17 +64,18 @@ class Nascente extends MY_ControllerLogado
     );
     $dataMenu = array('pos' => 2);
     $this->load->view('template/header');
-    $this->load->view('template/menu', $dataMenu);
+    $this->load->view('template/menu_sem_form', $dataMenu);
     $this->load->view('nascente/listagem', $data);
     $this->load->view('template/footer');
   }
 
   function carregaEditarNascente($id_nascente){
+    $dataMenu = array('pos' => 2);
     $data = array(
       "nascente" => $this->Nascente_model->nascenteSozinha($id_nascente)
     );
     $this->load->view('template/header');
-    $this->load->view('template/menu');
+    $this->load->view('template/menu_sem_form', $dataMenu);
     $this->load->view('nascente/editar_nascente', $data);
     $this->load->view('template/footer');
   }
