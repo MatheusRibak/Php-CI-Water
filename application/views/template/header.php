@@ -10,7 +10,8 @@
     <title>Sistema de Nascentes</title>
     <link href="<?= base_url('assets/css/bootstrap.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/dashboard.css') ?>" rel="stylesheet">
-    <script src="<?=base_url('assets/js/jquery-2.x-git.min.js')?>"></script>
+    <script src="<?=base_url('assets/js/bootstrap.js')?>"></script>
+    <script src="<?=base_url('assets/jquery/jquery-1.10.2.js')?>"></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">

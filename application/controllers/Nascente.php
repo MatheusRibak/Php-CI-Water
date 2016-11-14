@@ -110,4 +110,15 @@ class Nascente extends MY_ControllerLogado
       redirect('Nascente/listarNascentes/?aviso=1');
     }
   }
+
+  function listarTodasNascentes(){
+    $data = array(
+      "minhasNascentes" => $this->Nascente_model->listarTodasNascentes()
+    );
+    $dataMenu = array('pos' => 3);
+    $this->load->view('template/header');
+    $this->load->view('template/menu_sem_form', $dataMenu);
+    $this->load->view('nascente/todas_as_nascentes', $data);
+    $this->load->view('template/footer');
+  }
 }

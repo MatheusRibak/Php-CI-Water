@@ -34,6 +34,13 @@ class Nascente_model extends CI_Model
     return $this->db->get()->result();
   }
 
+  function listarTodasNascentes(){
+    //vai listar apenas as nascentes que o usuário cadastrou
+    $this->db->select('*')
+    ->from('cidade_nascente');
+    return $this->db->get()->result();
+  }
+
   function nascenteSozinha($id_nascente)
   {
     $this->db->select('*')

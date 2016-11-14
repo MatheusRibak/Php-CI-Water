@@ -1,13 +1,5 @@
 <script src="<?= base_url('assets/js/teste.js') ?>"></script>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <div class="col-sm-12">
-        <?php echo validation_errors(); ?>
-        <?php if ($this->input->get('aviso') == 1) { ?>
-            <div class="alert alert-success">
-                Você editou a nascente com sucesso!!!
-            </div>
-        <?php } ?>
-    </div>
 
     <div class="col-md-12">
       <div class="row">
@@ -30,7 +22,7 @@
            <div class="panel-heading ">
              <div class="row ">
                <div class="col col-xs-6">
-                 <h3 class="panel-title">Minhas Nascentes</h3>
+                 <h3 class="panel-title">Todas as Nascentes</h3>
 
                </div>
                <div class="col col-xs-6 text-right">
@@ -62,10 +54,10 @@
                      <td><?php echo $key->longitude; ?></td>
                      <td><?php echo $key->descricao_nascente; ?></td>
                      <td>
-                         <a href="<?= site_url('Nascente/carregaEditarNascente/' . $key->cd_local) ?>"
-                            class="btn btn-primary btn-sm" title="Editar Nascente">
+                         <a href="<?= site_url('Nascente/carregaVerNascente/' . $key->cd_local) ?>"
+                            class="btn btn-primary btn-sm" title="Ver Nascente">
                              <i class="fa fa-pencil" aria-hidden="true"></i>
-                             Editar Nascente </a>
+                             Ver Nascente </a>
                      </td>
                    </tr>
                          <?php endforeach; ?>
@@ -86,7 +78,6 @@
              </div>
            </div>
          </div>
-
 
 
 
