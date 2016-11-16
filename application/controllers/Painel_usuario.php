@@ -32,7 +32,9 @@ class Painel_usuario extends MY_ControllerLogado
       $marker['infowindow_content'] = '<h2>' . $row->nome_nascente . '</h2>' . 'Descrição: '
       . $row->descricao_nascente . '</br>' . 'Latitude: ' . $row->latitude
       . '</br>' . 'Longitude: ' . $row->longitude
-      . '</br>' . 'Usuário que Cadastrou: ' . $dadosUsuario->nome;
+      . '</br>' . 'Usuário que Cadastrou: ' . $dadosUsuario->nome
+      .'</br>' . 'Imagem: ' . '<a href="javascript:abrir(500,200)"> Visualizar Imagem</a>';
+
 
       $this->googlemaps->add_marker($marker);
 
@@ -60,7 +62,7 @@ class Painel_usuario extends MY_ControllerLogado
     $this->load->library('googlemaps');
 
     $config['cluster'] = 'TRUE';
-    $config['center'] = $latitude . ',' . $longitude;
+    $config['center'] = $teste->LATITUDE . ',' . $teste->LONGITUDE;
     $config['zoom'] = 'auto';
     $config['map_type'] = 'SATELLITE';
     //passando para os inputs os dados na hora em que clicar no mapa

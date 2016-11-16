@@ -149,4 +149,8 @@ class Nascente extends MY_ControllerLogado
     $this->load->view('nascente/todas_as_nascentes', $data);
     $this->load->view('template/footer');
   }
+
+  public function verImagem(){
+    $this->load->view('nascente/ver_imagem');
+  }
 }
