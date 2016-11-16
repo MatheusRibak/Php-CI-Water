@@ -18,7 +18,7 @@
             </ul>
 
             <h3>Nova Nascente</h3>
-            <form class="" action="<?= site_url('Nascente/cadastrarNascente') ?>" method="post">
+          <?=form_open_multipart('Nascente/cadastrarNascente'); ?>
               <div class="">
                   <input type="text" class="form-control" name="nome"
                          value="" placeholder="Nome da Nascente" required/>
@@ -40,13 +40,20 @@
                               class="form-control" rows="3"></textarea>
               </div>
               <br>
+              <div class="">
+
+                   <input type="file" name="arquivo" id="arquivo" size="20" />
+              </div>
+              <br>
               <div class="form-group">
 
                   <div class="col-sm-9">
-                      <button type="submit" class="btn btn-primary">
+                      <button type="submit" class="btn btn-primary" value="upload">
                           CADASTRAR <span class="glyphicon glyphicon-ok"></span>
                       </button>
                   </div>
               </div>
             </form>
+
+
         </div>

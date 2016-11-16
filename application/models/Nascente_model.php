@@ -7,6 +7,7 @@ class Nascente_model extends CI_Model
   public $criador_nascente;
   public $longitude;
   public $latitude;
+  public $foto; 
 
 
   function __construct()

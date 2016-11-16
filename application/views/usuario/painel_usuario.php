@@ -1,20 +1,26 @@
 <!-- menu usa col-sm-3 e col-md-2  eh o menu lateral, o resto fica na proxima div-->
 <!-- essa div utiliza a sobra do menu lateral... -->
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <div class="col-sm-12">
+      <?php echo validation_errors(); ?>
+      <?php if ($this->input->get('aviso') == 1) { ?>
+          <div class="alert alert-success">
+              Você cadastrou a Nascente Com sucesso!!!
+          </div>
+      <?php } ?>
+      <?php if ($this->input->get('aviso') == 2) { ?>
+          <div class="alert alert-danger">
+              Uma Nascente com esses dados já está cadastrada em nosso site!!!
+          </div>
+      <?php } ?>
+      <?php if ($this->input->get('aviso') == 3) { ?>
+          <div class="alert alert-danger">
+              A imagem não é compativel com alguns desses parametros: PNG, jpg, ou o seu tamanho é muito grande e não é suportado.
+          </div>
+      <?php } ?>
+  </div>
     <h1 class="page-header">Mapa de Nascentes</h1>
-    <div class="col-sm-12">
-        <?php echo validation_errors(); ?>
-        <?php if ($this->input->get('aviso') == 1) { ?>
-            <div class="alert alert-success">
-                Você cadastrou a Nascente Com sucesso!!!
-            </div>
-        <?php } ?>
-        <?php if ($this->input->get('aviso') == 2) { ?>
-            <div class="alert alert-danger">
-                Uma Nascente com esses dados já está cadastrada em nosso site!!!
-            </div>
-        <?php } ?>
-    </div>
+
     <div class="col-xm-12">
       <div class="panel panel-default">
          <div class="panel-heading">
