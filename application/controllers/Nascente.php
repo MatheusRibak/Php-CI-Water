@@ -53,7 +53,7 @@ class Nascente extends MY_ControllerLogado
       //Tipos suportados
       $config['allowed_types'] = 'jpg|png';
       //Configurando atributos do arquivo imagem que iremos receber
-      $config['max_size']     = '100';
+      $config['max_size']     = '32910321';
       $config['max_width']  = '1024';
       $config['max_height']  = '768';
       //Carregando a lib com as configurações feitas
@@ -66,10 +66,9 @@ class Nascente extends MY_ControllerLogado
       } else {
 
         // avisando se a imagem não estiver nos paramestros certos.
-        if( ! $this->upload->do_upload('arquivo')){
+        if( !$this->upload->do_upload('arquivo')){
           $error = array('error' => $this->upload->display_errors());
           redirect('Painel_usuario/index/?aviso=3');
-
         }
         else
         {
@@ -80,7 +79,6 @@ class Nascente extends MY_ControllerLogado
           $this->Nascente_model->foto = $file_url;
           $this->Nascente_model->Salvar();
           redirect('Painel_usuario/index/?aviso=1');
-
         }
       }
     }

@@ -12,11 +12,6 @@
     <link href="<?= base_url('assets/css/dashboard.css') ?>" rel="stylesheet">
     <script src="<?=base_url('assets/js/bootstrap.js')?>"></script>
     <script src="<?=base_url('assets/jquery/jquery-1.10.2.js')?>"></script>
-    <script languague="javascript">
-    Var teste = localStorage.getItem('id');
-      function abrir(largura, altura, teste){ window.open('<?= site_url('Nascente/verImagem/' + teste) ?>','popup','width='+largura+',height='+altura+',scrolling=auto,top=0,left=0') }
-    </script>
-
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
