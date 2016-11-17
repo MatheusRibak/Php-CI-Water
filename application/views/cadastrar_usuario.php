@@ -44,11 +44,11 @@
 </nav>
 <br>
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="content container-fluid  card col-sm-8 col-sm-offset-2">
-    <div class="row content">
+<div class="content container-fluid col-sm-10 col-sm-offset-1">
+
         <div>
-            <div class="col-sm-8 col-sm-offset-2">
-                <h2>Cadastro de Novo Usuário</h2>
+            <div class="col-sm-10 col-sm-offset-1">
+
                 <?php echo validation_errors(); ?>
                 <?php if ($this->input->get('aviso') == 1) { ?>
                     <div class="alert alert-success">
@@ -61,104 +61,169 @@
                         sistema!
                     </div>
                 <?php } ?>
+                <div class="col-sm-10 col-sm-offset-3">
+                    <h2>Cadastro de Novo Usuário</h2>
+                </div>
 
-                <div class="tab-content">
-                    <div id="ong" class="tab-pane fade in active">
-                        </br>
-                        <form action="<?= site_url('Usuario/cadastrarUsuario') ?>" method="post">
-                            <div class="form-group">
-                                <label for="e">Nome Completo: *</label>
-                                <input type="text"
-                                       id="senha" name="nome"
-                                       value="" class="form-control" required/>
+                <div class="container col-sm-10 col-sm-offset-1">
+                    <div class="row">
+
+                       <form action="<?= site_url('Usuario/cadastrarUsuario') ?>" method="post">
+
+                        <div class="panel-group" id="accordion">
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseDadosGerais">
+                                            Dados Gerais
+                                        </a>
+                                    </h4>
+                                </div>
+
+                                <div id="collapseDadosGerais" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+
+                                      <div class="form-group">
+                            <label for="e">Nome Completo: *</label>
+                            <input type="text"
+                                   id="senha" name="nome"
+                                   value="" class="form-control" required/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">E-mail: *</label>
+                            <input type="email"
+                                   name="email" id=""
+                                   value="" class="form-control" required/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="e">Senha: *</label>
+                            <input type="password"
+                                   id="senha" name="senha"
+                                   value="" class="form-control" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="e">Telefone: *</label>
+                            <input type="text"
+                                   id="senha" name="telefone"
+                                   value="" class="form-control telefone" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="e">CPF: *</label>
+                            <input type="text"
+                                   id="senha" name="cpf"
+                                   value="" class="form-control" required/>
+                        </div>
+
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="">E-mail: *</label>
-                                <input type="email"
-                                       name="email" id=""
-                                       value="" class="form-control" required/>
-                            </div>
+<br>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseLocalizacao">
+                                            Localização
+                                        </a>
+                                    </h4>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="e">Senha: *</label>
-                                <input type="password"
-                                       id="senha" name="senha"
-                                       value="" class="form-control" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="e">Telefone: *</label>
-                                <input type="text"
-                                       id="senha" name="telefone"
-                                       value="" class="form-control telefone" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="e">CPF: *</label>
-                                <input type="text"
-                                       id="senha" name="cpf"
-                                       value="" class="form-control" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="e">Rua: *</label>
-                                <input type="text"
-                                       id="senha" name="rua"
-                                       value="" class="form-control" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="e">Nº: *</label>
-                                <input type="text"
-                                       id="senha" name="numero"
-                                       value="" class="form-control" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="e">Estado: *</label>
-                                <select name="estado" lang="pt" class="form-control" name="estado">
-                                    <option value="AC">Acre</option>
-                                    <option value="AL">Alagoas</option>
-                                    <option value="AM">Amazonas</option>
-                                    <option value="AP">Amapá</option>
-                                    <option value="BA">Bahia</option>
-                                    <option value="CE">Ceará</option>
-                                    <option value="DF">Distrito Federal</option>
-                                    <option value="ES">Espírito Santo</option>
-                                    <option value="GO">Goiás</option>
-                                    <option value="MA">Maranhão</option>
-                                    <option value="MT">Mato Grosso</option>
-                                    <option value="MS">Mato Grosso do Sul</option>
-                                    <option value="MG">Minas Gerais</option>
-                                    <option value="PA">Pará</option>
-                                    <option value="PB">Paraíba</option>
-                                    <option value="PR">Paraná</option>
-                                    <option value="PE">Pernambuco</option>
-                                    <option value="PI">Piauí</option>
-                                    <option value="RJ">Rio de Janeiro</option>
-                                    <option value="RN">Rio Grande do Norte</option>
-                                    <option value="RO">Rondônia</option>
-                                    <option value="RS">Rio Grande do Sul</option>
-                                    <option value="RR">Roraima</option>
-                                    <option value="SC">Santa Catarina</option>
-                                    <option value="SE">Sergipe</option>
-                                    <option value="SP">São Paulo</option>
-                                    <option value="TO">Tocantins</option>
-                                </select>
-                            </div>
-                            <div class="form-group ">
-                                <label for="e">Cidade: *</label>
-                                <input type="text"
-                                       id="senha" name="cidade"
-                                       value="" class="form-control" required/>
-                            </div>
-                            <button type="submit" class="btn btn-primary">
+                                <div id="collapseLocalizacao" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+
+
+
+                                          <div class="form-group">
+                                 <label for="e">Rua: *</label>
+                                 <input type="text"
+                                        id="senha" name="rua"
+                                        value="" class="form-control" required/>
+                             </div>
+                             <div class="form-group">
+                                 <label for="e">Nº: *</label>
+                                 <input type="text"
+                                        id="senha" name="numero"
+                                        value="" class="form-control" required/>
+                             </div>
+                             <div class="form-group">
+                                 <label for="e">Estado: *</label>
+                                 <select name="estado" lang="pt" class="form-control" name="estado">
+                                     <option value="AC">Acre</option>
+                                     <option value="AL">Alagoas</option>
+                                     <option value="AM">Amazonas</option>
+                                     <option value="AP">Amapá</option>
+                                     <option value="BA">Bahia</option>
+                                     <option value="CE">Ceará</option>
+                                     <option value="DF">Distrito Federal</option>
+                                     <option value="ES">Espírito Santo</option>
+                                     <option value="GO">Goiás</option>
+                                     <option value="MA">Maranhão</option>
+                                     <option value="MT">Mato Grosso</option>
+                                     <option value="MS">Mato Grosso do Sul</option>
+                                     <option value="MG">Minas Gerais</option>
+                                     <option value="PA">Pará</option>
+                                     <option value="PB">Paraíba</option>
+                                     <option value="PR">Paraná</option>
+                                     <option value="PE">Pernambuco</option>
+                                     <option value="PI">Piauí</option>
+                                     <option value="RJ">Rio de Janeiro</option>
+                                     <option value="RN">Rio Grande do Norte</option>
+                                     <option value="RO">Rondônia</option>
+                                     <option value="RS">Rio Grande do Sul</option>
+                                     <option value="RR">Roraima</option>
+                                     <option value="SC">Santa Catarina</option>
+                                     <option value="SE">Sergipe</option>
+                                     <option value="SP">São Paulo</option>
+                                     <option value="TO">Tocantins</option>
+                                 </select>
+                             </div>
+                             <div class="form-group ">
+                                 <label for="e">Cidade: *</label>
+                                 <input type="text"
+                                        id="senha" name="cidade"
+                                        value="" class="form-control" required/>
+                             </div>
+
+
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                  <div class="col-sm-10">
+
+                                  </div>
+                                  <button type="submit" class="btn btn-primary">
                                 Realizar Cadastro <span class="glyphicon glyphicon-ok"></span>
                             </button>
-                            <br>
-                            <br>
+                                </div>
+
+                            </div>
+
+
+
+                		<!-- panel-group -->
+                        </div>
+
+                		<br/>
+
+
                         </form>
-                    </div>
+
+                	</div>
                 </div>
+
+
+
+
+
+
+
             </div>
         </div>
-    </div>
+
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>

@@ -35,6 +35,7 @@ class Painel_usuario extends MY_ControllerLogado
       . '</br>' . 'Usuário que Cadastrou: ' . $dadosUsuario->nome
       .'</br>' . 'Imagem: ' . '<a href="javascript:abrir(500,200)"> Visualizar Imagem</a>';
 
+      echo "<script>localStorage.setItem('id', \" $row->cd_local\");</script>";
 
       $this->googlemaps->add_marker($marker);
 
