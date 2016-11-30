@@ -66,6 +66,7 @@ class Nascente extends MY_ControllerLogado
       } else {
 
 
+
         // avisando se a imagem não estiver nos paramestros certos.
 //          if( !$this->upload->do_upload('arquivo')){
 //          $error = array('error' => $this->upload->display_errors());
