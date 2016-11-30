@@ -6,7 +6,7 @@ class Usuario_model extends CI_Model {
   public $email;
   public $senha;
 	public $cpf;
-	public $telefone; 
+	public $telefone;
 
 	function __construct() {
 		parent::__construct();

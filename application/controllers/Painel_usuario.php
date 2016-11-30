@@ -91,7 +91,7 @@ class Painel_usuario extends MY_ControllerLogado
             $this->googlemaps->add_marker($marker);
         }
         $data['map'] = $this->googlemaps->create_map();
-
+        $data['nascentes'] = $dadosLocais;
 
         $dataMenu = array('pos' => 0);
         $this->load->view('template/header');
