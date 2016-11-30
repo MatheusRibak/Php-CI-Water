@@ -84,6 +84,16 @@ class Nascente extends MY_ControllerLogado
     }
   }
 
+
+  function cadastrarNascenteSozinha(){
+    $dataMenu = array('pos' => 0);
+
+    $this->load->view('template/header');
+    $this->load->view('template/menu_sem_form', $dataMenu);
+    $this->load->view('nascente/cadastrar_nascente');
+    $this->load->view('template/footer');
+  }
+
   function listarNascentes(){
     $data = array(
       "minhasNascentes" => $this->Nascente_model->listarNascentes()
@@ -150,5 +160,52 @@ class Nascente extends MY_ControllerLogado
 
   public function verImagem(){
     $this->load->view('nascente/ver_imagem');
+  }
+
+  public function carregaVerNascente($id_nascente){
+
+    $this->db->select('*')
+        ->from('cidade_nascente')
+        ->where('cd_local', $id_nascente);
+    $teste = $this->db->get()->row();
+
+    $id_usuario = $this->session->userdata('id_usuario');
+
+    // 'Latitude, Longitude'
+    $this->load->library('googlemaps');
+
+    $config['cluster'] = 'TRUE';
+    $dadosLocais = $this->Nascente_model->getLocalSozinho($id_nascente);
+
+  //  $lat = str_replace(",", ".", $teste->latitude);
+
+  //  $long = str_replace(",", ".", $teste->longitude);
+    $config['center'] = $dadosLocais->latitude . ',' . $dadosLocais->longitude;
+    $config['zoom'] = 'auto';
+    $config['map_type'] = 'SATELLITE';
+    //passando para os inputs os dados na hora em que clicar no mapa
+    $config['onclick'] = '$("#txtLatitude").val(event.latLng.lat()); $("#txtLongitude").val(event.latLng.lng());';
+
+    $marker = array();
+    $marker['position'] = $dadosLocais->latitude . ',' . $dadosLocais->longitude;
+    $marker['title'] = $dadosLocais->nome_nascente;
+    $dadosUsuario = $this->Usuario_model->getUsuario()->row();
+    $marker['infowindow_content'] = '<h2>' . $dadosLocais->nome_nascente . '</h2>' . 'Descrição: '
+        . $dadosLocais->descricao_nascente . '</br>' . 'Latitude: ' . $dadosLocais->latitude
+        . '</br>' . 'Longitude: ' . $dadosLocais->longitude
+        . '</br>' . 'Usuário que Cadastrou: ' . $dadosUsuario->nome
+        . '</br>' . 'Imagem: '
+        . '<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalImagem' . $dadosLocais->cd_local .'">'
+        . ' Abrir imagem '
+        . '</button>';
+    $this->googlemaps->add_marker($marker);
+    $this->googlemaps->initialize($config);
+    $data['map'] = $this->googlemaps->create_map();
+    $data['nascente'] = $dadosLocais;
+    $dataMenu = array('pos' => 0);
+    $this->load->view('template/header', $data);
+    $this->load->view('template/menu', $dataMenu);
+    $this->load->view('template/footer');
+    $this->load->view('nascente/ver_todas_nascentes');
   }
 }

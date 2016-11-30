@@ -28,6 +28,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
+              <li><a href="<?=site_url('Nascente/cadastrarNascenteSozinha')?>">Cadastrar Nascente</a></li>
                 <li><a href="<?=site_url('Painel_Usuario/deslogar')?>">Sair</a></li>
             </ul>
         </div>

@@ -7,7 +7,7 @@ class Nascente_model extends CI_Model
   public $criador_nascente;
   public $longitude;
   public $latitude;
-  public $foto; 
+  public $foto;
 
 
   function __construct()
@@ -55,5 +55,12 @@ class Nascente_model extends CI_Model
     $this->db->where('cd_local', $id_nascente);
     $this->db->set($data);
     return $this->db->update('cidade_nascente');
+  }
+
+  function getLocalSozinho($id_nascente){
+    $this->db->select('*')
+    ->from('cidade_nascente')
+    ->where('cd_local', $id_nascente);
+    return $this->db->get()->row();
   }
 }

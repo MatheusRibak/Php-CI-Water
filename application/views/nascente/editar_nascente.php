@@ -10,45 +10,51 @@
         Por favor edite os dados que ache necessario...
       </div>
       <div class="panel-body">
-        <form class="form-horizontal"
+
         <?php foreach ($nascente as $key): ?>
 
+<?=form_open_multipart('Nascente/salvarEdicao'); ?>
 
-          action="<?= site_url('Nascente/salvarEdicao') ?>" method="post">
-          <div class="form-group">
-            <label class="col-sm-2">Nome
+          <div class="">
+            <label class="col-sm-2 espaco-campos">Nome
             </label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" name="nome"
+            <div class="col-sm-9 espaco-campos">
+              <input type="text" class="form-control " name="nome"
               value="<?php echo $key->nome_nascente; ?>" placeholder="Nome da Vaga" required/>
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-sm-2">Latitude
+
+
+
+          <div class="espaco-campos">
+            <label class="col-sm-2 espaco-campos">Latitude
             </label>
-            <div class="col-sm-9">
+            <div class="col-sm-9 espaco-campos">
               <input type="text" class="form-control" name="latitude"
               value="<?php echo $key->latitude; ?>" placeholder="Informe a Latitude" required/>
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-sm-2">Longitude
+
+    <div class=" espaco-campos">
+            <label class="col-sm-2 espaco-campos">Longitude
             </label>
-            <div class="col-sm-9">
+            <div class="col-sm-9 espaco-campos">
               <input type="text" class="form-control" name="longitude"
               value="<?php echo $key->longitude; ?>" placeholder="Informe a Longitude" required/>
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-sm-2">Descrição da
-              <br>
+
+          <div class="form-group espaco-campos">
+            <label class="col-sm-2 espaco-campos">Descrição da
+
               Nascente </label>
-              <div class="col-sm-9">
+              <div class="col-sm-9 espaco-campos">
                 <textarea name="descricao" value=""
                 placeholder="Informe a Descrição..."
                 class="form-control" rows="3"><?php echo $key->descricao_nascente; ?></textarea>
               </div>
             </div>
+
             <input type="hidden" name="cd_local" value="<?php echo $key->cd_local; ?>">
             <div class="form-group">
               <label class="col-sm-2"></label>
