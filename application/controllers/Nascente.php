@@ -49,11 +49,11 @@ class Nascente extends MY_ControllerLogado
       //Configurações necessárias para fazer upload do arquivo
 
       //Pasta onde será feito o upload
-      $config['upload_path'] = './assets/fotos/';
+      $config['upload_path'] = './assets/fotos';
       //Tipos suportados
-      $config['allowed_types'] = 'jpg|png';
+      $config['allowed_types'] = '*';
       //Configurando atributos do arquivo imagem que iremos receber
-      $config['max_size']     = '32910321';
+      $config['max_size']     = '512';
       $config['max_width']  = '1024';
       $config['max_height']  = '768';
       //Carregando a lib com as configurações feitas
