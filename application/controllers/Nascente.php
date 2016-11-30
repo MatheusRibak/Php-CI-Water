@@ -49,13 +49,13 @@ class Nascente extends MY_ControllerLogado
       //Configurações necessárias para fazer upload do arquivo
 
       //Pasta onde será feito o upload
-      $config['upload_path'] = './assets/fotos';
+      $config['upload_path'] = './assets/fotos/';
       //Tipos suportados
       $config['allowed_types'] = '*';
       //Configurando atributos do arquivo imagem que iremos receber
-      $config['max_size']     = '512';
-      $config['max_width']  = '1024';
-      $config['max_height']  = '768';
+      $config['max_size']     = '512000';
+      $config['max_width']  = '2440';
+      $config['max_height']  = '1600';
       //Carregando a lib com as configurações feitas
       $this->load->library('upload', $config);
 
@@ -65,13 +65,14 @@ class Nascente extends MY_ControllerLogado
         return;
       } else {
 
+
         // avisando se a imagem não estiver nos paramestros certos.
-        if( !$this->upload->do_upload('arquivo')){
-          $error = array('error' => $this->upload->display_errors());
-          redirect('Painel_usuario/index/?aviso=3');
-        }
-        else
-        {
+//          if( !$this->upload->do_upload('arquivo')){
+//          $error = array('error' => $this->upload->display_errors());
+//          redirect('Painel_usuario/index/?aviso=3');
+//        }
+//        else
+//        {
           // se estiver certa vai realizar o cadastro da nascente
           $imagem = $this->upload->data();
           //pegando a url aonde a imagem vai ser salva
@@ -79,7 +80,11 @@ class Nascente extends MY_ControllerLogado
           $this->Nascente_model->foto = $file_url;
           $this->Nascente_model->Salvar();
           redirect('Painel_usuario/index/?aviso=1');
-        }
+
+
+        //}
+
+
       }
     }
   }
