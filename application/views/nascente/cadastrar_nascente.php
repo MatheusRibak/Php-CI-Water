@@ -61,7 +61,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 espaco-campos">Foto </label>
                         <div class=" espaco-campos">
-                             <input type="file" name="arquivo" id="arquivo" class="espaco-campos" size="20" />
+                             <input type="file" name="arquivo" id="arquivo" class="espaco-campos" size="99999" />
                         </div>
                     </div>
                     <div class="form-group">

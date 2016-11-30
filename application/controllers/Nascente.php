@@ -11,7 +11,6 @@ class Nascente extends MY_ControllerLogado
   function carregaCadastrarNascente()
   {
     $data = array('pos' => 1);
-
     $this->load->view('template/header');
     $this->load->view('template/menu', $data);
     $this->load->view('usuario/cadastrar_nascente');
@@ -58,7 +57,8 @@ class Nascente extends MY_ControllerLogado
       $config['max_height']  = '1600';
       //Carregando a lib com as configurações feitas
       $this->load->library('upload', $config);
-
+        $this->upload->initialize($config);
+        $this->upload->do_upload('arquivo');
       //caso a validação não esteja correta, o cadastro não vai ser feito e será mostrada uma mensagem informando o input que não está correto
       if ($this->form_validation->run() == FALSE) {
         $this->carregaCadastrarNascente();
